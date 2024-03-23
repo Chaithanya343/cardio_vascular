@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Output Page</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+        color: #333;
+    }
+    
+    p {
+        color: #666;
+        margin-bottom: 20px;
+    }
+    
+    #output {
+        padding: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Output Page</h1>
+        {% if res == 'yes' %}
+        <h1>You are not having any Heart Disease</h1>
+<!--        <div id="output"></div>-->
+        {% else %}
+        <h1>You are having Heart Disease</h1>
+        {% endif %}
+    </div>
+</body>
+</html>

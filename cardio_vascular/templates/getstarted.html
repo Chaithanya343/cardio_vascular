@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Started</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: url('background.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    h1 {
+        color: #333;
+        font-weight: 700;
+        margin-bottom: 20px;
+        font-size: 2rem;
+        overflow: hidden; /* Ensures the content is hidden initially */
+        white-space: nowrap; /* Keeps the text on a single line */
+        letter-spacing: 4px; /* Spacing between letters */
+        animation: typing 2s steps(30, end); /* Typing animation */
+    }
+
+    p {
+        color: #666;
+        margin-bottom: 30px;
+        font-size: 1.2rem;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+
+    .button:hover {
+        background-color: #0056b3;
+    }
+
+    /* Keyframes for the typing animation */
+    @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+    }
+</style>
+</head>
+<body>
+<div class="container" style="background-color: #f0f0f0;">
+    <h1>Your Heart's Health Matters</h1>
+    <p>Take the first step in predicting your cardiovascular disease risk.</p>
+    <a href="{% url 'home' %}" class="button">Get Started</a>
+</div>
+
+<script>
+    // Simulate typing effect on the heading
+    document.addEventListener('DOMContentLoaded', function(){
+        const heading = document.querySelector('h1');
+        heading.style.animation = 'none'; // Disable the animation
+        void heading.offsetWidth; // Trigger reflow
+        heading.style.animation = null; // Reset the animation
+    });
+</script>
+</body>
+</html>

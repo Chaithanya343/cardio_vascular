@@ -1,0 +1,198 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthcare Form</title>
+
+</head>
+<body>
+<div class="container">
+    <h1>Healthcare Form</h1>
+    <form id="healthcare-form">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+
+        <label for="sex">Sex:</label>
+        <select id="sex" name="sex" required onchange="this.remove(0);">
+            <option value="" disabled selected>Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <label for="cp">Chest Pain Type:</label>
+        <input type="text" id="cp" name="cp">
+
+
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthcare Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+        background-image: url('background.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+
+    .container {
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    form {
+        display: grid;
+        gap: 15px;
+    }
+
+    label {
+        font-weight: bold;
+        color: #555;
+    }
+
+    input,
+    select {
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    /* Custom styling for select dropdown */
+    select {
+        background-image: url('data:image/svg+xml;utf8,<svg fill="black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>');
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        background-size: 20px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+
+    /* Custom styling for the container */
+    .container {
+        border: 2px solid #082545;
+    }
+
+    /* Custom styling for the submit button on hover */
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Healthcare Form</h1>
+    <form method="post" id="healthcare-form" action="{% url 'output' %}">
+        {%csrf_token%}
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+
+        <label for="sex">Sex:</label>
+        <select id="sex" name="sex" required onchange="hideSelectPlaceholder(this);">
+            <option value="" selected>Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <label for="cp">Chest Pain :</label>
+        <input type="number" id="cp" name="cp" required>
+
+
+        <label for="trestbps">Resting Blood Pressure (mm Hg):</label>
+        <input type="number" id="trestbps" name="trestbps" required>
+
+        <label for="chol">Serum Cholesterol (mg/dl):</label>
+        <input type="number" id="chol" name="chol" required>
+
+        <label for="fbs">Fasting Blood Sugar &gt; 120 mg/dl:</label>
+        <input type="number" id="fbs" name="fbs" required>
+
+        <label for="restecg">Resting Electrocardiographic Results:</label>
+        <input type="number" id="restecg" name="restecg" required>
+
+        <label for="thalach">Maximum Heart Rate Achieved:</label>
+        <input type="number" id="thalach" name="thalach" required>
+
+        <label for="exang">Exercise Induced Angina:</label>
+        <input type="number" id="exang" name="exang" required>
+
+        <label for="oldpeak">ST Depression Induced by Exercise Relative to Rest:</label>
+        <input type="number" id="oldpeak" name="oldpeak" required>
+
+        <label for="slope">Slope of the Peak Exercise ST Segment:</label>
+        <input type="number" id="slope" name="slope" required>
+
+        <label for="ca">Number of Major Vessels Colored by Fluoroscopy:</label>
+        <input type="number" id="ca" name="ca" required>
+
+        <label for="thal">Thalassemia:</label>
+        <input type="number" id="thal" name="thal" required>
+        <!-- Add more input fields for other parameters -->
+        
+        <input type="submit" value="Predict">
+    </form>
+</div>
+
+<script>
+function hideSelectPlaceholder(select) {
+    // Remove the "Select" option from the dropdown
+    select.querySelector('option[value=""]').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
